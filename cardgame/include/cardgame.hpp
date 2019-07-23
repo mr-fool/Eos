@@ -9,7 +9,8 @@ CONTRACT cardgame : public contract {
     cardgame(eosio::name receiver, 
       eosio::name code, datastream<const char*> ds):
       contract(receiver, code, ds), 
-      _users{receiver, receiver.value}
+      _users(receiver, receiver.value)
+      {}
 
     ACTION hi(name user);
   

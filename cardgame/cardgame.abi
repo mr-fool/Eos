@@ -14,16 +14,20 @@
             ]
         },
         {
-            "name": "tableStruct",
+            "name": "user_info",
             "base": "",
             "fields": [
                 {
-                    "name": "key",
+                    "name": "username",
                     "type": "name"
                 },
                 {
-                    "name": "name",
-                    "type": "string"
+                    "name": "win_count",
+                    "type": "uint64"
+                },
+                {
+                    "name": "lost_count",
+                    "type": "uint64"
                 }
             ]
         }
@@ -38,7 +42,7 @@
     "tables": [
         {
             "name": "table",
-            "type": "tableStruct",
+            "type": "user_info",
             "index_type": "i64",
             "key_names": [],
             "key_types": []
