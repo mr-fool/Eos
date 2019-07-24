@@ -4,6 +4,24 @@
     "types": [],
     "structs": [
         {
+            "name": "game_struct",
+            "base": "",
+            "fields": [
+                {
+                    "name": "gameid",
+                    "type": "uint64"
+                },
+                {
+                    "name": "isenabled",
+                    "type": "bool"
+                },
+                {
+                    "name": "gameName",
+                    "type": "string"
+                }
+            ]
+        },
+        {
             "name": "hi",
             "base": "",
             "fields": [
@@ -40,6 +58,13 @@
         }
     ],
     "tables": [
+        {
+            "name": "games",
+            "type": "game_struct",
+            "index_type": "i64",
+            "key_names": [],
+            "key_types": []
+        },
         {
             "name": "table",
             "type": "user_info",
