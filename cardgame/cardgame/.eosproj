@@ -3,7 +3,7 @@
   "contract": "cardgame",
   "include": "",
   "resource": "",
-  "cdt": "cmd",
+  "cdt": "v1.6.2",
   "output": "",
   "scripts": {
     "build": ""
@@ -16,6 +16,6 @@
     "local": ""
   },
   "test": {
-    "npmClient": ""
+    "npmClient": "npm"
   }
 }
