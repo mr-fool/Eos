@@ -4,30 +4,16 @@
     "types": [],
     "structs": [
         {
-            "name": "game_struct",
-            "base": "",
-            "fields": [
-                {
-                    "name": "gameid",
-                    "type": "uint64"
-                },
-                {
-                    "name": "isenabled",
-                    "type": "bool"
-                },
-                {
-                    "name": "gameName",
-                    "type": "string"
-                }
-            ]
-        },
-        {
-            "name": "hi",
+            "name": "login",
             "base": "",
             "fields": [
                 {
                     "name": "user",
                     "type": "name"
+                },
+                {
+                    "name": "usermessage",
+                    "type": "string"
                 }
             ]
         },
@@ -46,27 +32,24 @@
                 {
                     "name": "lost_count",
                     "type": "uint64"
+                },
+                {
+                    "name": "usermessage",
+                    "type": "string"
                 }
             ]
         }
     ],
     "actions": [
         {
-            "name": "hi",
-            "type": "hi",
+            "name": "login",
+            "type": "login",
             "ricardian_contract": ""
         }
     ],
     "tables": [
         {
-            "name": "games",
-            "type": "game_struct",
-            "index_type": "i64",
-            "key_names": [],
-            "key_types": []
-        },
-        {
-            "name": "table",
+            "name": "users",
             "type": "user_info",
             "index_type": "i64",
             "key_names": [],
