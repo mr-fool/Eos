@@ -13,7 +13,7 @@ CONTRACT cardgame : public contract {
       _games(receiver, receiver.value)
       {}
 
-    ACTION hi(name user);
+    ACTION login(name user);
   
   private:
     TABLE user_info {
