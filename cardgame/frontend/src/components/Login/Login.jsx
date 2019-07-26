@@ -3,7 +3,20 @@ import React, {Component} from 'react';
 import {Button} from 'components';
 
 class Login extends Component {
+    constructor(props) {
+        // Inherit constructor
+        super(props);
+        // State for form data and error message
+        this.state = {
+          form: {
+            username: '',
+            key: '',
+          },
+        }
+    }
     render() {
+        // Extract data from state
+        const { form } = this.state;
         return (
             <div className="Login">
             <div className="title">Elemental Battles - powered by EOSIO</div>
