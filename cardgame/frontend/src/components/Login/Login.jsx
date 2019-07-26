@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 //Components
-import {Button} from 'components';
+import {Button} from '../index';
 
 class Login extends Component {
     constructor(props) {

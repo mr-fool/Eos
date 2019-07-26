@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 //Compoents
-import {Login} from 'components';
+import {Login} from '../index';
 
 class App extends Component {
 
