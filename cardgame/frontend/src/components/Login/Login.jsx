@@ -13,6 +13,29 @@ class Login extends Component {
             key: '',
           },
         }
+            // Bind functions
+        this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
+    }
+    // Runs on every keystroke to update the React state
+    handleChange(event) {
+        const { name, value } = event.target;
+        const { form } = this.state;
+
+        this.setState({
+        form: {
+            ...form,
+            [name]: value,
+        },
+        });
+    }
+
+    // Handle form submission to call api
+    handleSubmit(event) {
+        // Stop the default form submit browser behaviour
+        event.preventDefault();
+
+        // TODO: submit transactions to smart contract
     }
     render() {
         // Extract data from state
