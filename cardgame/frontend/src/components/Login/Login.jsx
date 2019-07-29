@@ -11,6 +11,7 @@ class Login extends Component {
           form: {
             username: '',
             key: '',
+            error: ' ',
           },
         }
             // Bind functions
@@ -27,6 +28,7 @@ class Login extends Component {
             ...form,
             [name]: value,
         },
+        error: '',
         });
     }
 
@@ -39,7 +41,7 @@ class Login extends Component {
     }
     render() {
         // Extract data from state
-        const { form } = this.state;
+        const { form, error} = this.state;
         return (
             <div className="Login">
             <div className="title">Elemental Battles - powered by EOSIO</div>
@@ -72,6 +74,9 @@ class Login extends Component {
                 <Button type="submit" className="green">
                   { "CONFIRM" }
                 </Button>
+              </div>
+              <div className="field form-error">
+                
               </div>
             </form>
           </div>
