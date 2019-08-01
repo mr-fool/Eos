@@ -8,12 +8,8 @@
             "base": "",
             "fields": [
                 {
-                    "name": "user",
+                    "name": "username",
                     "type": "name"
-                },
-                {
-                    "name": "usermessage",
-                    "type": "string"
                 }
             ]
         },
@@ -27,15 +23,11 @@
                 },
                 {
                     "name": "win_count",
-                    "type": "uint64"
+                    "type": "uint16"
                 },
                 {
                     "name": "lost_count",
-                    "type": "uint64"
-                },
-                {
-                    "name": "usermessage",
-                    "type": "string"
+                    "type": "uint16"
                 }
             ]
         }

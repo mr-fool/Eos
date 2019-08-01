@@ -1,19 +1,16 @@
-#include <cardgame.hpp>
 #include "gameplay.cpp"
 
-ACTION cardgame::login(name user, std::string usermessage) {
-  require_auth(user);
-  //look through the _sers table to find user
-  auto user_iterator = _users.find(user.value);
+ACTION cardgame::login(name username) {
+  // Ensure this action is authorized by the player
+  require_auth(username);
   
-  //if user does not exist,
+  // Create a record in the table if the player doesn't exist in our app yet
+  auto user_iterator = _users.find(username.value);
   if (user_iterator == _users.end()) {
-     //create a new record for the user (_users)
-     user_iterator = _users.emplace
-      (user,[&](auto& new_user){
-        new_user.username = user;
-        new_user.usermessage = usermessage;
-      });
-  }
- 
+    user_iterator = _users.emplace(username,  [&](auto& new_user) {
+      new_user.username = username;
+    });
+  } 
 }
+
+EOSIO_DISPATCH(cardgame, (login))
