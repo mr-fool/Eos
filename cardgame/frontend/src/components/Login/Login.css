@@ -25,8 +25,13 @@
     background: url("./images/Game_logo.png");
     background-size: 100%;
     color: transparent; }
+  .field {
+    padding-left:30px;
+    padding-right:100px;
+  }
   .Login .description {
     margin-top: 50px;
+    padding-left:100px;
     margin-bottom: 25px;
     line-height: 1.5em; }
   .Login .field {
