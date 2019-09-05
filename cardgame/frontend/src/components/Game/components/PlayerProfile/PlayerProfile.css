@@ -5,6 +5,8 @@
   background: url("./images/Game_Profile_frame.png") 15px 0 no-repeat;
   background-size: 788px;
   color: #fff;
+  text-align:center;
+  margin:auto;
   font-size: 30px;
   text-transform: uppercase; }
   .PlayerProfile > div,

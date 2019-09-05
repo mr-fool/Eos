@@ -34,6 +34,23 @@ async function takeAction(action, dataValue) {
 
 class ApiService{
 
+    static getCurrentUser() {
+        return new Promise((resolve, reject) => {
+          if (!localStorage.getItem("cardgame_account")) {
+            return reject();
+          }
+          takeAction("login", { username: localStorage.getItem("cardgame_account") })
+            .then(() => {
+              resolve(localStorage.getItem("cardgame_account"));
+            })
+            .catch(err => {
+              localStorage.removeItem("cardgame_account");
+              localStorage.removeItem("cardgame_key");
+              reject(err);
+            });
+        });
+    }
+
     static login({username, key}){
         return new Promise((resolve, reject) => {
             localStorage.setItem("cardgame_account", username);
