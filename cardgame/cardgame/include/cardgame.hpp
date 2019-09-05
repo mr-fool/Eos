@@ -5,12 +5,16 @@ using namespace eosio;
 CONTRACT cardgame : public contract {
 
   private:
-
+    struct game {
+    
+    };
+    
     TABLE user_info {
       name            username;
       uint16_t        win_count = 0;
       uint16_t        lost_count = 0;
-
+      game            game_data;
+      
       auto primary_key() const { return username.value; }
     };
 
