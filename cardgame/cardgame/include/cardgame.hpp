@@ -5,8 +5,17 @@ using namespace eosio;
 CONTRACT cardgame : public contract {
 
   private:
-    struct game {
     
+    enum game_status: int8_t {
+      ONGOING = 0,
+      PLAYER_WON = 1,
+      PLAYER_LOST = -1
+    };
+    
+    struct game {
+      int8_t life_player = 5;
+      int8_t life_ai = 5;
+      int8_t status = ONGOING;
     };
     
     TABLE user_info {
