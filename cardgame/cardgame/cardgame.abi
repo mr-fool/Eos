@@ -16,8 +16,40 @@
                     "type": "int8"
                 },
                 {
+                    "name": "deck_player",
+                    "type": "uint8[]"
+                },
+                {
+                    "name": "deck_ai",
+                    "type": "uint8[]"
+                },
+                {
+                    "name": "hand_player",
+                    "type": "uint8[]"
+                },
+                {
+                    "name": "hand_ai",
+                    "type": "uint8[]"
+                },
+                {
+                    "name": "selected_card_player",
+                    "type": "uint8"
+                },
+                {
+                    "name": "selected_card_ai",
+                    "type": "uint8"
+                },
+                {
                     "name": "status",
                     "type": "int8"
+                },
+                {
+                    "name": "life_lost_player",
+                    "type": "uint8"
+                },
+                {
+                    "name": "life_lost_ai",
+                    "type": "uint8"
                 }
             ]
         },

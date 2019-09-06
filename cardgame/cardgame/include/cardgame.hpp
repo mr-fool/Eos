@@ -21,11 +21,6 @@ CONTRACT cardgame : public contract {
       VOID = 5
     };
     
-    struct game {
-      int8_t life_player = 5;
-      int8_t life_ai = 5;
-      int8_t status = ONGOING;
-    };
     
     struct card {
       uint8_t type;
@@ -53,6 +48,21 @@ CONTRACT cardgame : public contract {
       { 17, {VOID, 0} }
     };
     
+    struct game {
+      int8_t  life_player = 5;
+      int8_t  life_ai = 5;
+      vector<uint8_t> deck_player =
+        {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17};
+      vector<uint8_t> deck_ai =
+        {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17};
+      vector<uint8_t> hand_player = {0,0,0,0};
+      vector<uint8_t> hand_ai = {0,0,0,0};
+      uint8_t selected_card_player = 0;
+      uint8_t selected_card_ai = 0;
+      int8_t  status = ONGOING;
+      uint8_t life_lost_player = 0;
+      uint8_t life_lost_ai = 0;
+    };
     
     TABLE user_info {
       name            username;
