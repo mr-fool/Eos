@@ -4,6 +4,24 @@
     "types": [],
     "structs": [
         {
+            "name": "game",
+            "base": "",
+            "fields": [
+                {
+                    "name": "life_player",
+                    "type": "int8"
+                },
+                {
+                    "name": "life_ai",
+                    "type": "int8"
+                },
+                {
+                    "name": "status",
+                    "type": "int8"
+                }
+            ]
+        },
+        {
             "name": "login",
             "base": "",
             "fields": [
@@ -28,6 +46,10 @@
                 {
                     "name": "lost_count",
                     "type": "uint16"
+                },
+                {
+                    "name": "game_data",
+                    "type": "game"
                 }
             ]
         }
