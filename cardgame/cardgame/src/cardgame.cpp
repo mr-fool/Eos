@@ -13,6 +13,10 @@ ACTION cardgame::login(name username) {
   } 
 }
 
-ACTION cardgame::startgame(name user) {
-  
+ACTION cardgame::startgame(name username) {
+  require_auth(username);
+  auto& user_data = _user.get(user.value, "User doesn't exist");
+  _users.modify(user_data, username, [&](row)) {
+    row.variable = 13;
+  }
 }
