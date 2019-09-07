@@ -86,5 +86,8 @@ CONTRACT cardgame : public contract {
 	{}
 
     ACTION login(name username);
+    ACTION startgame(name user);
 
 };
+
+EOSIO_DISPATCH(cardgame,(login)(startgame));

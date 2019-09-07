@@ -13,4 +13,6 @@ ACTION cardgame::login(name username) {
   } 
 }
 
-EOSIO_DISPATCH(cardgame, (login))
+ACTION cardgame::startgame(name user) {
+  
+}

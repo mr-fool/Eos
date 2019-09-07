@@ -64,6 +64,16 @@
             ]
         },
         {
+            "name": "startgame",
+            "base": "",
+            "fields": [
+                {
+                    "name": "user",
+                    "type": "name"
+                }
+            ]
+        },
+        {
             "name": "user_info",
             "base": "",
             "fields": [
@@ -90,6 +100,11 @@
         {
             "name": "login",
             "type": "login",
+            "ricardian_contract": ""
+        },
+        {
+            "name": "startgame",
+            "type": "startgame",
             "ricardian_contract": ""
         }
     ],
