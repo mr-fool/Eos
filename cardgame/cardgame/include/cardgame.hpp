@@ -1,26 +1,39 @@
 #include <eosio/eosio.hpp>
+#include <eosio/print.hpp>
 
-using namespace std;
 using namespace eosio;
-CONTRACT cardgame : public contract {
+using namespace std;
 
-  private:
+CONTRACT cardgame : public contract {
+  public:
+    using contract::contract;
+    cardgame(name receiver,
+      name code, datastream<const char*> ds):
+      contract(receiver, code, ds),
+      _users(receiver, receiver.value),
+      _seed(receiver, receiver.value)
+      {}
+
+    ACTION login(name username);
     
+    ACTION startgame(name username);
+  
+  private:
+  
     enum game_status: int8_t {
       ONGOING = 0,
       PLAYER_WON = 1,
       PLAYER_LOST = -1
     };
     
-    enum card_type: int8_t {
-      EMPTY = 0, //for empty slot in player's hand
-      FIRE = 1, 
+    enum card_type: uint8_t {
+      EMPTY = 0, // for empty slot in player's hand
+      FIRE = 1,
       WOOD = 2,
       WATER = 3,
       NEUTRAL = 4,
       VOID = 5
     };
-    
     
     struct card {
       uint8_t type;
@@ -47,7 +60,7 @@ CONTRACT cardgame : public contract {
       { 16, {NEUTRAL, 3} }, 
       { 17, {VOID, 0} }
     };
-    
+  
     struct game {
       int8_t  life_player = 5;
       int8_t  life_ai = 5;
@@ -65,29 +78,38 @@ CONTRACT cardgame : public contract {
     };
     
     TABLE user_info {
-      name            username;
-      uint16_t        win_count = 0;
-      uint16_t        lost_count = 0;
-      game            game_data;
+      name      username;
+      uint64_t  win_count = 0;
+      uint64_t  lost_count = 0;
+      game      game_data;
       
-      auto primary_key() const { return username.value; }
+      auto primary_key() const {
+        return username.value;
+      }
     };
-
-    typedef multi_index<name("users"), user_info> users_table;
-
+    
+    TABLE seed {
+      uint64_t  key = 1;
+      uint32_t  value = 1;
+      
+      auto primary_key() const {
+        return key;
+      }
+    };
+    
+    typedef multi_index
+    <name("users"), user_info> users_table;
+    
+    typedef multi_index
+    <name("seed"), seed> seed_table;
+    
     users_table _users;
-
-  public:
-
-    using contract::contract; 
-    cardgame( name receiver, name code, datastream<const char*> ds ):
-	contract(receiver, code, ds),
-	_users(receiver, receiver.value)
-	{}
-
-    ACTION login(name username);
-    ACTION startgame(name user);
-
+    seed_table _seed;
+    
+    void draw_one_card(vector<uint8_t>& deck, vector<uint8_t>& hand);
+    
+    int random(const int range);
+    
 };
 
-EOSIO_DISPATCH(cardgame,(login)(startgame));
+EOSIO_DISPATCH(cardgame, (login)(startgame))
