@@ -18,7 +18,7 @@ CONTRACT cardgame : public contract {
     
     ACTION startgame(name username);
   
-    ACTION playcard(name user, uint8_t player_card_idx);
+    ACTION playcard(name username, uint8_t player_card_idx);
     
   private:
   

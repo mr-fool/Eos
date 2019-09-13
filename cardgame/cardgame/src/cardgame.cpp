@@ -33,3 +33,5 @@ ACTION cardgame::startgame(name username) {
   });
   
 }
+
+ACTION cardgame::play
