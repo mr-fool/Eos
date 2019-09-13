@@ -34,4 +34,7 @@ ACTION cardgame::startgame(name username) {
   
 }
 
-ACTION cardgame::play
+ACTION cardgame::playcard(name username,uint8_t player_card_idx) {
+  
+  //Ensure that the player has authorize this cardgame 
+}
