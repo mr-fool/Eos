@@ -17,9 +17,11 @@ ACTION cardgame::login(name username) {
 ACTION cardgame::startgame(name username) {
   require_auth(username);
   
-  auto& user_data = _users.get(username.value, "User doesn't exist");
+  auto& user_data = _users.get(username.value,
+    "User doesn't exist");
   
-  _users.modify(user_data, username, [&](auto& modified_user_data) {
+  _users.modify(user_data, username,
+    [&](auto& modified_user_data) {
     game game_data;
     
     //Draw 4 cards for the player and the AI from their decks
@@ -34,20 +36,35 @@ ACTION cardgame::startgame(name username) {
   
 }
 
-ACTION cardgame::playcard(name username,uint8_t player_card_hand_idx) {
+ACTION cardgame::playcard
+  (name username, uint8_t player_card_hand_idx) {
   
-  //Ensure that the player has authorize this cardgame 
+  // Ensure that the player has authorized this cardgame
   require_auth(username);
   
-  //Check that the card has been selected is valid
-  eosio_assert(player_card_hand_idx < 4, "playcard: invalid hand index");
-  auto& user_data = _users.get(username.value, "User doesn't exist");
+  // Check that the card has been selected is valid
+  check(player_card_hand_idx < 4,
+      "playcard: invalid hand index");
   
-  //Verify that the game status is suitable
-  eosio_assert(user_data.game_data == ONGOING, "playcard: This game has already ended");
-  eosio_assert(user_data.game_data.selected_card_player == 0, "playcard: Player has already played a card this turn!");
+  auto& user_data = _users.get(username.value,
+    "User doesn't exist");
   
-  //Assign the selected card from the player's hand
+  // Verify that the game status is suitable
   
+  check(user_data.game_data.status == ONGOING,
+    "playcard: This game has already ended");
+    
+  check(user_data.game_data.selected_card_player == 0,
+    "playcard: Player has already played a card this turn!");
+    
+  _users.modify(user_data, username, [&](auto& modified_user) {
+    game& game_data = modified_user.game_data;
+    
+    game_data.selected_card_player =
+      game_data.hand_player[player_card_hand_idx];
+    game_data.hand_player[player_card_hand_idx] = 0;
+    
+  });
   
+  // Assign the selected card from the player's hand
 }

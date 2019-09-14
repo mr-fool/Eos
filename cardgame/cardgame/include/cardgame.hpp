@@ -114,4 +114,4 @@ CONTRACT cardgame : public contract {
     
 };
 
-EOSIO_DISPATCH(cardgame, (login)(startgame))
+EOSIO_DISPATCH(cardgame, (login)(startgame)(playcard))
