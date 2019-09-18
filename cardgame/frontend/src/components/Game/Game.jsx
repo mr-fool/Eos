@@ -31,7 +31,10 @@ class Game extends Component {
         });
 
     }
+    handlePlayCard() {
 
+    }
+    
     handleStartGame(){
         //use ApiService to start a game on the blockchain
         //call loadUser again in order to render the latest game
