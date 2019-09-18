@@ -1,6 +1,6 @@
 import { Api, JsonRpc } from 'eosjs';
 //DON'T DO THIS IN PRODUCTION EVER
-import JsSignatureProvider from 'eosjs/dist/eosjs-jssig';
+import { JsSignatureProvider } from 'eosjs/dist/eosjs-jssig';
 
 //Main action call to the blockchain
 async function takeAction(action, dataValue) {
@@ -65,6 +65,11 @@ class ApiService{
                 reject(err);
             });
         });
+    }
+
+    static startGame() {
+        return takeAction("startgame",
+            {username: localStorage.getItem("cardgame_account")});
     }
 
     static async getUserByName(username) {
