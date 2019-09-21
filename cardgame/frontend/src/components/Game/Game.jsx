@@ -13,6 +13,7 @@ class Game extends Component {
         //Bind functions
         this.loadUser = this.loadUser.bind(this);
         this.handleStartGame = this.handleStartGame.bind(this);
+        this.handlePlayCard = this.handlePlayCard.bind(this);
         //Call 'loadUser' befor mounting the app
         this.loadUser();
     }
@@ -31,8 +32,8 @@ class Game extends Component {
         });
 
     }
-    handlePlayCard() {
-
+    handlePlayCard(cardIdx) {
+        const { user }
     }
     
     handleStartGame(){
