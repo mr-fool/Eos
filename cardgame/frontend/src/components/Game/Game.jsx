@@ -80,6 +80,7 @@ class Game extends Component {
                             playerLife={ game.life_player }
                             playerHandCards={ game.hand_player }
                             playerName={ name }
+                            onPlayCard =  {this.handlePlayCard}
                         />
                         <GameInfo
                             deckCardCount={ game.deck_ai.length }
