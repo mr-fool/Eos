@@ -71,6 +71,10 @@ class ApiService{
         return takeAction("startgame",
             {username: localStorage.getItem("cardgame_account")});
     }
+    static playCard() {
+        return takeAction("playcard", 
+            {username: localStorage.getItem("cardgame_account")});
+    }
 
     static async getUserByName(username) {
         try{

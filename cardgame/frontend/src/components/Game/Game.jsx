@@ -37,11 +37,13 @@ class Game extends Component {
 
         //if the card to be played is an empty card, do nothing
         if (game.hand_player[cardIdx] === 0) {
-            
+            return;
         }
         //send req to ApiService to play the card
         //call loadUser again in order to render the latest game
-
+        return ApiService.playCard(cardIdx).then(()=>{
+            return this.loadUser();
+        });
     }
     
     handleStartGame(){
