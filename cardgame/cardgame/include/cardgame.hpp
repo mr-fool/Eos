@@ -18,8 +18,6 @@ CONTRACT cardgame : public contract {
     
     ACTION startgame(name username);
   
-    ACTION playcard(name username, uint8_t player_card_idx);
-    
   private:
   
     enum game_status: int8_t {
@@ -114,4 +112,4 @@ CONTRACT cardgame : public contract {
     
 };
 
-EOSIO_DISPATCH(cardgame, (login)(startgame)(playcard))
+EOSIO_DISPATCH(cardgame, (login)(startgame))
