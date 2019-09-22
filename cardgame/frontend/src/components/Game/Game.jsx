@@ -32,14 +32,16 @@ class Game extends Component {
         });
 
     }
-    handlePlayCard(cardIdx) {
-        const { user: {game} } =this.props;
 
-        //if the card to be played is an empty card, do nothing
+    handlePlayCard(cardIdx) {
+        const { user: { game }} = this.props;
+    
+        // if it is an empty card, don't do anything
         if (game.hand_player[cardIdx] === 0) {
             return;
         }
-        //send req to ApiService to play the card
+
+        //Send req to blockchain via ApiService to play this card,
         //call loadUser again in order to render the latest game
         return ApiService.playCard(cardIdx).then(()=>{
             return this.loadUser();
@@ -80,7 +82,7 @@ class Game extends Component {
                             playerLife={ game.life_player }
                             playerHandCards={ game.hand_player }
                             playerName={ name }
-                            onPlayCard =  {this.handlePlayCard}
+                            onPlayCard={ this.handlePlayCard }
                         />
                         <GameInfo
                             deckCardCount={ game.deck_ai.length }
