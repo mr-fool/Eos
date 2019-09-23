@@ -40,16 +40,16 @@
                     "type": "uint8"
                 },
                 {
-                    "name": "status",
-                    "type": "int8"
-                },
-                {
                     "name": "life_lost_player",
                     "type": "uint8"
                 },
                 {
                     "name": "life_lost_ai",
                     "type": "uint8"
+                },
+                {
+                    "name": "status",
+                    "type": "int8"
                 }
             ]
         },
@@ -60,6 +60,20 @@
                 {
                     "name": "username",
                     "type": "name"
+                }
+            ]
+        },
+        {
+            "name": "playcard",
+            "base": "",
+            "fields": [
+                {
+                    "name": "username",
+                    "type": "name"
+                },
+                {
+                    "name": "player_card_idx",
+                    "type": "uint8"
                 }
             ]
         },
@@ -97,11 +111,11 @@
                 },
                 {
                     "name": "win_count",
-                    "type": "uint64"
+                    "type": "uint16"
                 },
                 {
                     "name": "lost_count",
-                    "type": "uint64"
+                    "type": "uint16"
                 },
                 {
                     "name": "game_data",
@@ -114,6 +128,11 @@
         {
             "name": "login",
             "type": "login",
+            "ricardian_contract": ""
+        },
+        {
+            "name": "playcard",
+            "type": "playcard",
             "ricardian_contract": ""
         },
         {
