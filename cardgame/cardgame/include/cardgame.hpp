@@ -102,6 +102,8 @@ class [[eosio::contract]] cardgame : public eosio::contract {
 
     int ai_choose_card(const game& game_data);
 
+    void resolve_selected_cards(game& game_data);
+
     int random(const int range);
 
   public:
