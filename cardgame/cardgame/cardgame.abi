@@ -4,6 +4,16 @@
     "types": [],
     "structs": [
         {
+            "name": "endgame",
+            "base": "",
+            "fields": [
+                {
+                    "name": "username",
+                    "type": "name"
+                }
+            ]
+        },
+        {
             "name": "game",
             "base": "",
             "fields": [
@@ -55,6 +65,16 @@
         },
         {
             "name": "login",
+            "base": "",
+            "fields": [
+                {
+                    "name": "username",
+                    "type": "name"
+                }
+            ]
+        },
+        {
+            "name": "nextround",
             "base": "",
             "fields": [
                 {
@@ -126,8 +146,18 @@
     ],
     "actions": [
         {
+            "name": "endgame",
+            "type": "endgame",
+            "ricardian_contract": ""
+        },
+        {
             "name": "login",
             "type": "login",
+            "ricardian_contract": ""
+        },
+        {
+            "name": "nextround",
+            "type": "nextround",
             "ricardian_contract": ""
         },
         {

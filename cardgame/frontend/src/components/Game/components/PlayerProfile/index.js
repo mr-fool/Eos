@@ -1,4 +1,3 @@
-import PlayerProfile from './PlayerProfile';
 import './PlayerProfile.css';
-
+import PlayerProfile from './PlayerProfile';
 export default PlayerProfile;

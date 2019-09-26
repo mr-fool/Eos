@@ -11,8 +11,6 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin:auto;
-  text-align:center;
   justify-content: center; }
   .Info > * {
     margin: 1px 0; }
